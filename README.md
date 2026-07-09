@@ -3,7 +3,14 @@
 A full-stack job board for the Bangladeshi market where employers post jobs and job seekers apply — with an AI layer that scores resume-to-job fit for every application, so employers can rank candidates by relevance instead of reading resumes one by one.
 
 **Live demo:** _add your deployed link here once live_
-**Screenshots:** _add 2-3 screenshots here (browse page, employer dashboard with fit scores)_
+
+## Screenshots
+
+| | |
+|---|---|
+| ![Browse jobs](screenshots/01-browse-jobs.png) **Browse & search jobs** — seekers filter listings by title, description, and location. | ![Job detail expanded](screenshots/02-job-detail-expanded.png) **Expandable job details** — click a listing to view full description and requirements inline. |
+| ![Create account](screenshots/03-create-account.png) **Role-based signup** — a single form adapts fields for Employer vs. Job Seeker accounts. | ![AI fit score](screenshots/04-ai-fit-score-dashboard.png) **AI-scored applicants** — employer dashboard ranks candidates by resume-to-job fit, with matched/missing skills. |
+| ![My applications](screenshots/05-my-applications.png) **Application tracking** — seekers see status and fit feedback for every job they've applied to. | ![Application submitted](screenshots/06-application-submitted.png) **Resume upload flow** — apply directly from the listing with instant submission confirmation. |
 
 ---
 
@@ -29,6 +36,7 @@ Most portfolio job boards are CRUD-only. This one adds a real applied-AI feature
 - Resume text extraction (`pdfplumber` for PDF, `python-docx` for DOCX)
 - Structured fit scoring via the Anthropic Messages API using a forced tool call — guarantees valid JSON output, no fragile prompt parsing
 - Graceful degradation: unparseable resumes (e.g. scanned images) or API failures still let the application save, just without a score
+- **Offline-safe fallback:** if no funded API key is configured, a local keyword-overlap scorer automatically takes over so the full flow stays testable at zero cost — this is what's shown in the dashboard screenshot below (labeled accordingly); swaps back to live Claude scoring automatically once a real key is active
 
 ---
 
