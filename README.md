@@ -2,7 +2,7 @@
 
 A full-stack job board for the Bangladeshi market where employers post jobs and job seekers apply — with an AI layer that scores resume-to-job fit for every application, so employers can rank candidates by relevance instead of reading resumes one by one.
 
-**Live demo:** _add your deployed link here once live_
+
 
 ## Screenshots
 
